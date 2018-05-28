@@ -1,9 +1,9 @@
  <!doctype html>
   <html>
     <head>
-      <link rel="stylesheet" href="../node_modules/xterm/dist/xterm.css" />
-      <script src="../node_modules/xterm/dist/xterm.js"></script>
-      <script src="../node_modules/browsix/lib-dist/lib/kernel/kernel.js"></script>
+      <link rel="stylesheet" href="css/xterm.css" />
+      <script src="scripts/xterm.js"></script>
+      <script src="fs/boot/kernel.js"></script>
     </head>
     <body>
       <div id="terminal"></div>
@@ -38,6 +38,13 @@
 			 term.write("\r\n");
 		 }
 	}
+
+    	window.Boot('XmlHttpRequest', ['index.json', 'fs', true], function (err, k) {
+		if (err) {
+	    		console.log(err);
+		}
+		window.BrowsixKernel = k;
+    	}, { readOnly: false });
 
         </script>
     </body>
