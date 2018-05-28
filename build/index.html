@@ -3,7 +3,7 @@
     <head>
       <link rel="stylesheet" href="../node_modules/xterm/dist/xterm.css" />
       <script src="../node_modules/xterm/dist/xterm.js"></script>
-      <script src="kernel.js"></script>
+      <script src="../node_modules/browsix/lib-dist/lib/kernel/kernel.js"></script>
     </head>
     <body>
       <div id="terminal"></div>
@@ -39,15 +39,6 @@
 		 }
 	}
 
-	// now we need to boot browsix
-        window.Boot('XmlHttpRequest', ['index.json', 'fs', true], function (err, k) {
-        	if (err) {
-                	console.log(err);
-			term.writeln(err);
-                	throw new Error(err);
-                }
-                window.browsixKernel = k;
-        }, { readOnly: false });
-      </script>
+        </script>
     </body>
   </html>
